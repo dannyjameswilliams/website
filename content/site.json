@@ -89,5 +89,14 @@
     "/talk/": "/",
     "/authors/": "/",
     "/author/daniel-williams/": "/"
+  },
+
+  "_aliases": "Old file URLs served by copying a built file to the old path. A redirect stub cannot be used for a feed or a PDF.",
+  "aliases": {
+    "index.xml": "blog/feed.xml",
+    "post/index.xml": "blog/feed.xml",
+    "files/cv.pdf": "assets/cv.pdf",
+    "pdfs/cv.pdf": "assets/cv.pdf",
+    "pdfs/proj/mastersdiss.pdf": "assets/pdf/mastersdiss.pdf"
   }
 }

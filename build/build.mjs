@@ -125,6 +125,16 @@ ${urls.map((url) => `  <url><loc>${site.url}${url}</loc></url>`).join('\n')}
     )
   }
 
+  for (const [from, to] of Object.entries(site.aliases ?? {})) {
+    const source = join(OUT, to)
+    if (!existsSync(source)) {
+      console.warn(`  alias ${from}: ${to} was not built`)
+      continue
+    }
+    await mkdir(dirname(join(OUT, from)), { recursive: true })
+    await cp(source, join(OUT, from))
+  }
+
   await write('robots.txt', `User-agent: *\nAllow: /\nSitemap: ${site.url}/sitemap.xml\n`)
   if (site.domain) await write('CNAME', site.domain + '\n')
   await write('.nojekyll', '')
