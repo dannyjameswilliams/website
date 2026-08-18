@@ -159,18 +159,39 @@ function publicationEntry(publication, site, { showYear = false } = {}) {
 </article>`
 }
 
-function postRow(post) {
-  return `<a class="post-row" href="/blog/${post.slug}/">
-  <span class="post-row-date">${formatDate(post.date, { month: 'short' })}</span>
-  <span class="post-row-thumb">${
-    post.image ? `<img src="${post.image}" alt="" loading="lazy" decoding="async">` : ''
-  }</span>
+// One row of a listing. Posts and projects share it so the two cannot drift apart.
+function listRow({ href, date, image, title, subtitle, tags }) {
+  return `<a class="post-row" href="${href}">
+  <span class="post-row-date">${escapeHtml(date ?? '')}</span>
+  <span class="post-row-thumb">${image ? `<img src="${image}" alt="" loading="lazy" decoding="async">` : ''}</span>
   <span class="post-row-text">
-    <span class="post-row-title">${renderInline(post.title)}</span>
-    ${post.subtitle ? `<span class="post-row-subtitle">${renderInline(post.subtitle)}</span>` : ''}
+    <span class="post-row-title">${renderInline(title)}</span>
+    ${subtitle ? `<span class="post-row-subtitle">${renderInline(subtitle)}</span>` : ''}
   </span>
-  ${tagList(post.tags.slice(0, 3))}
+  ${tagList(tags?.slice(0, 3))}
 </a>`
+}
+
+function postRow(post) {
+  return listRow({
+    href: `/blog/${post.slug}/`,
+    date: formatDate(post.date, { month: 'short' }),
+    image: post.image,
+    title: post.title,
+    subtitle: post.subtitle,
+    tags: post.tags,
+  })
+}
+
+function projectRow(project) {
+  return listRow({
+    href: `/projects/${project.slug}/`,
+    date: project.date?.getUTCFullYear(),
+    image: project.image,
+    title: project.title,
+    subtitle: project.summary,
+    tags: project.tags,
+  })
 }
 
 function sectionHead(title, link) {
@@ -230,18 +251,7 @@ export function homePage(site, home, { publications, posts, projects }) {
 
       <section class="block">
         ${sectionHead('Projects', { href: '/projects/', label: 'All projects' })}
-        <div class="post-list">${projects
-      .slice(0, 3)
-      .map(
-        (project) => `<a class="post-row" href="/projects/#${project.slug}">
-  <span class="post-row-date">${project.date?.getUTCFullYear() ?? ''}</span>
-  <span class="post-row-text">
-    <span class="post-row-title">${renderInline(project.title)}</span>
-    <span class="post-row-subtitle">${renderInline(project.summary)}</span>
-  </span>
-</a>`,
-      )
-      .join('')}</div>
+        <div class="post-list">${projects.slice(0, 3).map(projectRow).join('')}</div>
       </section>
 
     </div>
