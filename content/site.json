@@ -1,0 +1,93 @@
+{
+  "name": "Danny James Williams",
+  "authorName": "Daniel Williams",
+  "role": "Machine Learning & AI Engineer",
+  "affiliation": "Weaviate · PhD, University of Bristol",
+  "email": "danny@weaviate.io",
+  "url": "https://dannyjameswilliams.co.uk",
+  "domain": "dannyjameswilliams.co.uk",
+  "description": "Danny James Williams — machine learning and AI engineer. Truncated density estimation, generative models, and writing about statistics.",
+  "portrait": "/assets/img/portrait.jpg",
+  "socialImage": "/assets/img/portrait.jpg",
+  "footer": "Set in Archivo and Literata. Website built by Claude Code.",
+  "nav": [
+    {
+      "key": "blog",
+      "label": "Blog",
+      "href": "/blog/"
+    },
+    {
+      "key": "publications",
+      "label": "Research",
+      "href": "/publications/"
+    },
+    {
+      "key": "projects",
+      "label": "Projects",
+      "href": "/projects/"
+    },
+    {
+      "key": "cv",
+      "label": "CV",
+      "href": "/assets/cv.pdf",
+      "external": true
+    }
+  ],
+  "contact": [
+    {
+      "label": "CV",
+      "href": "/assets/cv.pdf"
+    },
+    {
+      "label": "github",
+      "href": "https://github.com/dannyjameswilliams"
+    },
+    {
+      "label": "linkedin",
+      "href": "https://linkedin.com/in/dannyjameswilliams"
+    },
+    {
+      "label": "danny@dannyjameswilliams.co.uk",
+      "href": "mailto:danny@dannyjameswilliams.co.uk"
+    }
+  ],
+  "links": [
+    {
+      "label": "Email",
+      "href": "mailto:danny@dannyjameswilliams.co.uk"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/dannyjameswilliams"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://linkedin.com/in/dannyjameswilliams"
+    },
+    {
+      "label": "RSS",
+      "href": "/blog/feed.xml"
+    }
+  ],
+
+  "_redirects": "Paths the old Hugo site published. Delete an entry once nothing links to it any more.",
+  "redirects": {
+    "/post/": "/blog/",
+    "/post/asoiaf/": "/blog/asoiaf/",
+    "/post/hackathon/": "/blog/hackathon/",
+    "/post/kanye/": "/blog/kanye/",
+    "/post/mistakes/": "/blog/mistakes/",
+    "/post/nodata/": "/blog/nodata/",
+    "/post/randomchoices/": "/blog/randomchoices/",
+    "/post/tksd/": "/blog/tksd/",
+    "/post/hottakes/": "/blog/",
+    "/tutorials/": "/blog/",
+    "/tutorials/tutorialasoiaf/": "/blog/asoiaf/",
+    "/tutorials/tutorialmanifoldtsm1/": "/publications/",
+    "/portfolios/": "/projects/",
+    "/publication/": "/publications/",
+    "/talk/": "/",
+    "/authors/": "/",
+    "/author/daniel-williams/": "/"
+  }
+}

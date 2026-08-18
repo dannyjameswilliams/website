@@ -1,1 +1,10 @@
-hugo/*
+node_modules/
+dist/
+.DS_Store
+
+# Scratch: the old Hugo site and the design references, kept locally only.
+hugo/
+inspo/
+kanyenet/
+randomchoices/
+asoiaf/
