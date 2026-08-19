@@ -2,9 +2,10 @@ node_modules/
 dist/
 .DS_Store
 
-# Scratch: the old Hugo site and the design references, kept locally only.
-hugo/
-inspo/
-kanyenet/
-randomchoices/
-asoiaf/
+# Kept locally only. Anchored with a leading slash so these match the folders at
+# the repository root and not, say, content/blog/asoiaf.
+/hugo/
+/inspo/
+/kanyenet/
+/randomchoices/
+/asoiaf/
