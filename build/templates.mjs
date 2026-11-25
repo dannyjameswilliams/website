@@ -100,7 +100,6 @@ function schema(site, page) {
         '@type': 'Person',
         name: site.name,
         jobTitle: site.role,
-        email: `mailto:${site.email}`,
         url: site.url,
         sameAs: site.links.filter((link) => link.href?.startsWith('http')).map((link) => link.href),
       }
