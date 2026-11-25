@@ -63,9 +63,16 @@ function header(site, page) {
 </header>`
 }
 
+// An entry with no href is plain text: the email address is written out
+// rather than linked, so it is not a mailto target.
+function contactItem({ label, href }) {
+  if (!href) return `<span>${escapeHtml(label)}</span>`
+  return `<a href="${href}"${href.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${escapeHtml(label)}</a>`
+}
+
 function footer(site) {
   const links = site.links
-    .map((link) => `<a href="${link.href}"${link.href.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${link.label}</a>`)
+    .map((link) => contactItem(link))
     .join('')
 
   return `<footer class="site-footer">
@@ -95,7 +102,7 @@ function schema(site, page) {
         jobTitle: site.role,
         email: `mailto:${site.email}`,
         url: site.url,
-        sameAs: site.links.filter((link) => link.href.startsWith('http')).map((link) => link.href),
+        sameAs: site.links.filter((link) => link.href?.startsWith('http')).map((link) => link.href),
       }
   return `<script type="application/ld+json">${JSON.stringify(data)}</script>`
 }
@@ -227,7 +234,7 @@ export function homePage(site, home, { publications, posts, projects }) {
       <h1>${wordmark(site, { large: true })}</h1>
       <p class="masthead-role">${escapeHtml(site.role)}<span>${escapeHtml(site.affiliation)}</span></p>
       <div class="masthead-contact">
-        ${site.contact.map((item) => `<a href="${item.href}"${item.href.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${escapeHtml(item.label)}</a>`).join('')}
+        ${site.contact.map((item) => contactItem(item)).join('')}
         <a class="masthead-jump" href="#about">${escapeHtml(home.closingHeading.toLowerCase())}<svg viewBox="0 0 12 14" aria-hidden="true"><path d="M6 1v11M1.8 8.2 6 12.4l4.2-4.2"/></svg></a>
       </div>
     </div>

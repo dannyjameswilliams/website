@@ -37,8 +37,7 @@ rail:
         href: https://linkedin.com/in/dannyjameswilliams
       - primary: Curriculum vitae
         href: /assets/cv.pdf
-      - primary: danny@dannyjameswilliams.co.uk
-        href: mailto:danny@dannyjameswilliams.co.uk
+      - primary: danny[at]dannyjameswilliams.co.uk
 ---
 
 I did my PhD at the University of Bristol as part of the COMPASS CDT, supervised by Song Liu, on

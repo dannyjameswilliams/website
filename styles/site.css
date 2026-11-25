@@ -364,6 +364,12 @@ button {
   transition: color 160ms var(--ease), border-color 160ms var(--ease);
 }
 
+/* An unlinked entry (the email address) sits in the row as plain text. */
+.masthead-contact span {
+  color: var(--ink-2);
+  padding-bottom: 1px;
+}
+
 .masthead-contact a:hover {
   color: var(--accent);
   border-color: var(--accent);
@@ -1950,6 +1956,10 @@ button {
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: color 160ms var(--ease), border-color 160ms var(--ease);
+}
+
+.footer-links span {
+  color: var(--ink-3);
 }
 
 .footer-links a:hover {
